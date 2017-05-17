@@ -1,11 +1,13 @@
 package com.locationsearch;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.SearchView;
 
 import java.util.List;
@@ -25,6 +27,7 @@ public class LocationSearchActivity extends AppCompatActivity implements Locatio
     private LocationSearchPresenter presenter;
     private View loadingOverlay;
     private RecyclerView venuesList;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +39,9 @@ public class LocationSearchActivity extends AppCompatActivity implements Locatio
         Toolbar toolbar = (Toolbar) findViewById(R.id.appBar);
         setSupportActionBar(toolbar);
 
-        this.loadingOverlay = findViewById(R.id.loadingOverlay);
-        this.venuesList = (RecyclerView) findViewById(R.id.venuesList);
+        loadingOverlay = findViewById(R.id.loadingOverlay);
+        searchView = (SearchView) findViewById(R.id.searchView);
+        venuesList = (RecyclerView) findViewById(R.id.venuesList);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
@@ -54,11 +58,11 @@ public class LocationSearchActivity extends AppCompatActivity implements Locatio
     }
 
     private void initialiseSearchView() {
-        SearchView searchView = (SearchView) findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 presenter.searchVenues(query);
+                hideKeyboard();
                 return true;
             }
 
@@ -67,6 +71,11 @@ public class LocationSearchActivity extends AppCompatActivity implements Locatio
                 return false;
             }
         });
+    }
+
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
     }
 
     @Override

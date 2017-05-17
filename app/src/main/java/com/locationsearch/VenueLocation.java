@@ -64,7 +64,17 @@ class VenueLocation {
         return country;
     }
 
-    public List<String> getFormattedAddress() {
-        return formattedAddress;
+    public String getFormattedAddress() {
+        StringBuilder builder = new StringBuilder();
+
+        if(!formattedAddress.isEmpty()) {;
+            builder.append(formattedAddress.remove(0));
+
+            for(String addressPart : formattedAddress) {
+                builder.append(", ").append(addressPart);
+            }
+        }
+
+        return builder.toString();
     }
 }
