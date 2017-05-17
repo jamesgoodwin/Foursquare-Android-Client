@@ -18,7 +18,7 @@ class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
     public VenueViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
-        return new VenueViewHolder(inflater.inflate(R.layout.layout_venue, parent, false));
+        return new VenueViewHolder(inflater.inflate(R.layout.layout_venue, parent, false), new VenuePresenter());
     }
 
     @Override

@@ -5,26 +5,39 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import static java.lang.Math.max;
-
-class VenueViewHolder extends RecyclerView.ViewHolder {
+class VenueViewHolder extends RecyclerView.ViewHolder implements VenueView {
 
     private final TextView venueNameText;
     private final TextView descriptionText;
     private final AppCompatRatingBar ratingBar;
 
-    VenueViewHolder(View itemView) {
+    private final VenuePresenter venuePresenter;
+
+    VenueViewHolder(View itemView, VenuePresenter venuePresenter) {
         super(itemView);
         this.venueNameText = (TextView) itemView.findViewById(R.id.venueNameText);
         this.descriptionText = (TextView) itemView.findViewById(R.id.descriptionText);
         this.ratingBar = (AppCompatRatingBar) itemView.findViewById(R.id.ratingBar);
+        this.venuePresenter = venuePresenter;
     }
 
     void setVenue(Venue venue) {
-        this.venueNameText.setText(venue.getName());
-        this.descriptionText.setText(venue.getLocation().getFormattedAddress());
+        venuePresenter.showVenue(venue, this);
+    }
 
-        this.ratingBar.setRating(max(venue.getRating(), 0.1f) / 2f);
+    @Override
+    public void showRating(float rating) {
+        this.ratingBar.setRating(rating);
+    }
+
+    @Override
+    public void showVenueName(String venueName) {
+        this.venueNameText.setText(venueName);
+    }
+
+    @Override
+    public void showVenueAddress(String address) {
+        this.descriptionText.setText(address);
     }
 
 }
