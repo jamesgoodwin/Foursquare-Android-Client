@@ -11,7 +11,7 @@ Displays results for locations using the Foursquare API
 ### Design approach
 The project is a simple app showing a list of venues for the searched location using the Foursquare API.
 
-Despite being simple in features, I wanted the project to showcase the use of the MVP design pattern to improve the overall architecture of the app, allowing the behaviour of the app to be unit testable. The MVP pattern is especially useful in Android since the view components (`Activity` and `Fragment`) are not easily unit testable, so the business logic must be in a class with no direct dependency on the Android framework.
+Despite being simple in features, I wanted the project to showcase the use of the MVP design pattern to improve the overall architecture of the app, allowing the behaviour of the app to be unit testable. The MVP pattern is especially useful in Android as the controller components (`Activity` and `Fragment`) are not easily unit testable, so the business logic must live in a class with no references to the Android framework.
 
 Unit tests for the presenters can be found in the `app/src/test/java` directory.
 
