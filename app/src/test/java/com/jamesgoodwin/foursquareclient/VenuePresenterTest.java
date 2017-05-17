@@ -1,4 +1,7 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient;
+
+import com.jamesgoodwin.foursquareclient.model.Venue;
+import com.jamesgoodwin.foursquareclient.model.VenueLocation;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

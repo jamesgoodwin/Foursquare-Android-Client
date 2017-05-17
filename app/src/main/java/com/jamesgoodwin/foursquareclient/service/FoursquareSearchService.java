@@ -1,4 +1,7 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient.service;
+
+import com.jamesgoodwin.foursquareclient.model.Venue;
+import com.jamesgoodwin.foursquareclient.model.VenueSearchResult;
 
 import java.util.List;
 
@@ -8,7 +11,7 @@ import io.reactivex.functions.Function;
 
 import static java.util.Collections.unmodifiableList;
 
-class FoursquareSearchService implements LocationSearchService {
+public class FoursquareSearchService implements LocationSearchService {
 
     private static final String CLIENT_ID = "CKKTF5K1MIYOAQ31QCFM1MP4PADWMRE31DFZAJ0N2NLWYKGY";
     private static final String CLIENT_SECRET = "QALYG22JISYEFQV2MBP1TEEUQF0PJRPLBZEDE1NKDHNIUOZJ";
@@ -16,7 +19,7 @@ class FoursquareSearchService implements LocationSearchService {
 
     private FoursquareRetrofitApiService apiService;
 
-    FoursquareSearchService(FoursquareRetrofitApiService apiService) {
+    public FoursquareSearchService(FoursquareRetrofitApiService apiService) {
         this.apiService = apiService;
     }
 

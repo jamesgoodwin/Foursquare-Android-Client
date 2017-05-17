@@ -1,4 +1,4 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient.model;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -13,7 +13,7 @@ public class Response {
         this.venueGroups = venueGroups;
     }
 
-    public List<VenueGroup> getVenueGroups() {
+    List<VenueGroup> getVenueGroups() {
         return venueGroups;
     }
 

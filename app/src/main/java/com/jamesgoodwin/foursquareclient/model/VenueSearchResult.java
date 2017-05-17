@@ -1,9 +1,9 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class VenueSearchResult {
+public class VenueSearchResult {
 
     private Response response;
 
@@ -11,7 +11,7 @@ class VenueSearchResult {
         this.response = response;
     }
 
-    List<Venue> getVenues() {
+    public List<Venue> getVenues() {
         List<Venue> venues = new ArrayList<>();
 
         for(VenueGroup venueGroup : response.getVenueGroups()) {

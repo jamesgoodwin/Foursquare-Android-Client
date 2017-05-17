@@ -1,10 +1,10 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient.model;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class VenueGroup {
+class VenueGroup {
 
     @SerializedName("items")
     private List<VenueResultItem> venues;

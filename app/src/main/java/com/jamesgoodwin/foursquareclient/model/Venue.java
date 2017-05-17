@@ -1,6 +1,6 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient.model;
 
-class Venue {
+public class Venue {
 
     private String name;
     private VenueLocation location;

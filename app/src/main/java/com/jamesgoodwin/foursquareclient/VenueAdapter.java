@@ -1,8 +1,11 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import com.jamesgoodwin.R;
+import com.jamesgoodwin.foursquareclient.model.Venue;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient.model;
 
 import java.util.List;
 
-public class VenueResultItem {
+class VenueResultItem {
 
     private Venue venue;
     private List<VenueCategory> categories;

@@ -1,4 +1,6 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient;
+
+import com.jamesgoodwin.foursquareclient.model.Venue;
 
 class VenuePresenter {
 

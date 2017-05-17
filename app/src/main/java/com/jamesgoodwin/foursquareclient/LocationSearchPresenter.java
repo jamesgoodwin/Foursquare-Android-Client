@@ -1,6 +1,9 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient;
 
 import android.util.Log;
+
+import com.jamesgoodwin.foursquareclient.model.Venue;
+import com.jamesgoodwin.foursquareclient.service.LocationSearchService;
 
 import java.util.List;
 
@@ -8,7 +11,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
-class LocationSearchPresenter {
+public class LocationSearchPresenter {
 
     private final LocationSearchView view;
     private final LocationSearchService locationSearchService;

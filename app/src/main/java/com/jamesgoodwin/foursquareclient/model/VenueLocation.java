@@ -1,11 +1,11 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient.model;
 
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 @SuppressWarnings("unused")
-class VenueLocation {
+public class VenueLocation {
 
     private String address;
 
@@ -25,7 +25,7 @@ class VenueLocation {
 
     private List<String> formattedAddress;
 
-    VenueLocation(String address, double latitude, double longitude, String postalCode, String city, String state, String country, List<String> formattedAddress) {
+    public VenueLocation(String address, double latitude, double longitude, String postalCode, String city, String state, String country, List<String> formattedAddress) {
         this.address = address;
         this.latitude = latitude;
         this.longitude = longitude;

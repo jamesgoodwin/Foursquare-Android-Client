@@ -1,4 +1,4 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient;
 
 interface VenueView {
 

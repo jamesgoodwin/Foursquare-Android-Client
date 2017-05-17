@@ -1,4 +1,4 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.SearchView;
+
+import com.jamesgoodwin.R;
+import com.jamesgoodwin.foursquareclient.model.Venue;
+import com.jamesgoodwin.foursquareclient.service.FoursquareRetrofitApiService;
+import com.jamesgoodwin.foursquareclient.service.FoursquareSearchService;
 
 import java.util.List;
 

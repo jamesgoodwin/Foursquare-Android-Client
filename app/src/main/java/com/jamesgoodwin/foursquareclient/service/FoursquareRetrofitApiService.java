@@ -1,10 +1,12 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient.service;
+
+import com.jamesgoodwin.foursquareclient.model.VenueSearchResult;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-interface FoursquareRetrofitApiService {
+public interface FoursquareRetrofitApiService {
 
     @GET("/v2/venues/explore")
     Single<VenueSearchResult> searchVenues(@Query("client_id") String clientId,

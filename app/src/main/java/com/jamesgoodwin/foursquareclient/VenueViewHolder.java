@@ -1,9 +1,12 @@
-package com.locationsearch;
+package com.jamesgoodwin.foursquareclient;
 
 import android.support.v7.widget.AppCompatRatingBar;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import com.jamesgoodwin.R;
+import com.jamesgoodwin.foursquareclient.model.Venue;
 
 class VenueViewHolder extends RecyclerView.ViewHolder implements VenueView {
 
