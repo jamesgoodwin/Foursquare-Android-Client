@@ -17,6 +17,6 @@ Unit tests for the presenters can be found in the `app/src/test/java` directory.
 
 Currently the app does not use a dependency injection library, and dependencies are passed manually in the constructor. With more time I would replace this with a proper DI library (e.g. Dagger 2).
 
-[BuddyBuild](http://buddybuild.com/) has been set up with the project to perform builds and run tests automatically on any commit. The latest build status is displayed as the top of this readme.
+[BuddyBuild](http://buddybuild.com/) Continuous Integration server has been set up to build the project and run tests automatically on each commit. The latest build status is displayed as the top of this readme.
 
 ![Screenshot](https://github.com/jamesgoodwin/Foursquare-Android-Client/blob/master/screenshot2.png)
