@@ -2,16 +2,19 @@ package com.locationsearch;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Response {
 
     @SerializedName("groups")
-    private VenueGroups venueGroups;
+    private List<VenueGroup> venueGroups;
 
-    public Response(VenueGroups venueGroups) {
+    public Response(List<VenueGroup> venueGroups) {
         this.venueGroups = venueGroups;
     }
 
-    public VenueGroups getVenueGroups() {
+    public List<VenueGroup> getVenueGroups() {
         return venueGroups;
     }
+
 }

@@ -4,22 +4,16 @@ import java.util.List;
 
 public class VenueResultItem {
 
-    private String name;
-    private VenueLocation location;
+    private Venue venue;
     private List<VenueCategory> categories;
 
-    public VenueResultItem(String name, VenueLocation location, List<VenueCategory> categories) {
-        this.name = name;
-        this.location = location;
+    public VenueResultItem(Venue venue, List<VenueCategory> categories) {
+        this.venue = venue;
         this.categories = categories;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public VenueLocation getLocation() {
-        return location;
+    public Venue getVenue() {
+        return venue;
     }
 
     public List<VenueCategory> getCategories() {

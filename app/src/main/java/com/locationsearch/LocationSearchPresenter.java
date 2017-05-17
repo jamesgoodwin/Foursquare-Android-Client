@@ -1,7 +1,11 @@
 package com.locationsearch;
 
+import android.util.Log;
+
+import java.util.List;
+
 import io.reactivex.Scheduler;
-import io.reactivex.functions.Action;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Consumer;
 
 class LocationSearchPresenter {
@@ -11,7 +15,10 @@ class LocationSearchPresenter {
     private Scheduler backgroundScheduler;
     private Scheduler viewScheduler;
 
-    LocationSearchPresenter(LocationSearchView view, LocationSearchService locationSearchService, Scheduler backgroundScheduler, Scheduler viewScheduler) {
+    LocationSearchPresenter(LocationSearchView view,
+                            LocationSearchService locationSearchService,
+                            Scheduler backgroundScheduler,
+                            Scheduler viewScheduler) {
         this.view = view;
         this.locationSearchService = locationSearchService;
         this.backgroundScheduler = backgroundScheduler;
@@ -24,16 +31,16 @@ class LocationSearchPresenter {
         locationSearchService.searchVenues(query)
                 .subscribeOn(backgroundScheduler)
                 .observeOn(viewScheduler)
-                .doAfterTerminate(new Action() {
+                .subscribe(new Consumer<List<Venue>>() {
                     @Override
-                    public void run() throws Exception {
+                    public void accept(List<Venue> venues) {
+                        view.showResults(venues);
                         view.showLoading(false);
                     }
-                })
-                .subscribe(new Consumer<VenueSearchResult>() {
+                }, new Consumer<Throwable>() {
                     @Override
-                    public void accept(VenueSearchResult venueSearchResult) {
-                        view.showResults(venueSearchResult.getVenues());
+                    public void accept(@NonNull Throwable throwable) throws Exception {
+                        Log.e("Foursquare-Client", "Error retrieving results", throwable);
                     }
                 });
     }

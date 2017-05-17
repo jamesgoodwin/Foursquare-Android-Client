@@ -8,10 +8,10 @@ import java.util.List;
 
 class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
 
-    private final List<VenueResultItem> venueResultItems;
+    private final List<Venue> venues;
 
-    VenueAdapter(List<VenueResultItem> venueResultItems) {
-        this.venueResultItems = venueResultItems;
+    public VenueAdapter(List<Venue> venues) {
+        this.venues = venues;
     }
 
     @Override
@@ -23,11 +23,11 @@ class VenueAdapter extends RecyclerView.Adapter<VenueViewHolder> {
 
     @Override
     public void onBindViewHolder(VenueViewHolder holder, int position) {
-        holder.setVenue(venueResultItems.get(position));
+        holder.setVenue(venues.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return venueResultItems.size();
+        return venues.size();
     }
 }

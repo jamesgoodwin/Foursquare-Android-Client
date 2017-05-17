@@ -43,10 +43,9 @@ public class LocationSearchActivity extends AppCompatActivity implements Locatio
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl("https://api.foursquare.com/v2/")
-                .client(new OkHttpClient())
-                .build();
+                .client(new OkHttpClient()).build();
 
-        FoursquareRetrofitSearchService apiService = retrofit.create(FoursquareRetrofitSearchService.class);
+        FoursquareRetrofitApiService apiService = retrofit.create(FoursquareRetrofitApiService.class);
         FoursquareSearchService searchService = new FoursquareSearchService(apiService);
 
         this.presenter = new LocationSearchPresenter(this, searchService, Schedulers.io(), mainThread());
@@ -56,7 +55,6 @@ public class LocationSearchActivity extends AppCompatActivity implements Locatio
 
     private void initialiseSearchView() {
         SearchView searchView = (SearchView) findViewById(R.id.searchView);
-
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -77,8 +75,8 @@ public class LocationSearchActivity extends AppCompatActivity implements Locatio
     }
 
     @Override
-    public void showResults(List<VenueResultItem> venueResultItems) {
-        venuesList.setAdapter(new VenueAdapter(venueResultItems));
+    public void showResults(List<Venue> venues) {
+        venuesList.setAdapter(new VenueAdapter(venues));
         venuesList.setLayoutManager(new LinearLayoutManager(this));
     }
 }

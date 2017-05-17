@@ -1,9 +1,11 @@
 package com.locationsearch;
 
+import java.util.List;
+
 import io.reactivex.Single;
 
-public interface LocationSearchService {
+interface LocationSearchService {
 
-    Single<VenueSearchResult> searchVenues(String query);
+    Single<List<Venue>> searchVenues(String query);
 
 }

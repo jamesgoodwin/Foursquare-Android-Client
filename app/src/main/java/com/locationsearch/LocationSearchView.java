@@ -6,5 +6,5 @@ interface LocationSearchView {
 
     void showLoading(boolean show);
 
-    void showResults(List<VenueResultItem> venueResultItems);
+    void showResults(List<Venue> venues);
 }

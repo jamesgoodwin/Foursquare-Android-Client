@@ -10,11 +10,10 @@ class VenueViewHolder extends RecyclerView.ViewHolder {
 
     VenueViewHolder(View itemView) {
         super(itemView);
-
         this.venueNameText = (TextView) itemView.findViewById(R.id.venueNameText);
     }
 
-    void setVenue(VenueResultItem venue) {
+    void setVenue(Venue venue) {
         this.venueNameText.setText(venue.getName());
     }
 

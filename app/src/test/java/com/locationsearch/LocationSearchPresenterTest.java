@@ -5,6 +5,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import java.util.List;
+
 import io.reactivex.schedulers.TestScheduler;
 
 import static io.reactivex.Single.just;
@@ -23,40 +25,41 @@ public class LocationSearchPresenterTest {
     LocationSearchService locationSearchService;
 
     @Mock
-    VenueSearchResult venueSearchResult;
+    List<Venue> venues;
 
     @Test
     public void shouldDisplayLoadingViewWhenSearching() {
-        TestScheduler testScheduler = new TestScheduler();
-        LocationSearchPresenter presenter = new LocationSearchPresenter(locationSearchView, locationSearchService, testScheduler, testScheduler);
+        TestScheduler scheduler = new TestScheduler();
+        LocationSearchPresenter presenter = new LocationSearchPresenter(locationSearchView, locationSearchService, scheduler, scheduler);
 
         String searchTerm = "London";
 
         when(locationSearchService.searchVenues(eq(searchTerm)))
-                .thenReturn(just(venueSearchResult));
+                .thenReturn(just(venues));
 
         presenter.searchVenues(searchTerm);
 
-        testScheduler.triggerActions();
+        scheduler.triggerActions();
 
         verify(locationSearchView).showLoading(eq(true));
     }
 
     @Test
     public void shouldDisplaySearchResultsInView() {
-        TestScheduler testScheduler = new TestScheduler();
-        LocationSearchPresenter presenter = new LocationSearchPresenter(locationSearchView, locationSearchService, testScheduler, testScheduler);
+        TestScheduler scheduler = new TestScheduler();
+        LocationSearchPresenter presenter = new LocationSearchPresenter(locationSearchView, locationSearchService, scheduler, scheduler);
 
         String searchTerm = "London";
 
         when(locationSearchService.searchVenues(eq(searchTerm)))
-                .thenReturn(just(venueSearchResult));
+                .thenReturn(just(venues));
 
         presenter.searchVenues(searchTerm);
 
-        testScheduler.triggerActions();
+        scheduler.triggerActions();
 
-        verify(locationSearchView).showResults(anyListOf(VenueResultItem.class));
+        verify(locationSearchView)
+                .showResults(anyListOf(Venue.class));
     }
 
 }
