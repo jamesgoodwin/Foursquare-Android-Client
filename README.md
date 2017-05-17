@@ -2,7 +2,7 @@
 Displays results for locations using the Foursquare API
 
 ### Requirements
-- Android Studio 2.3.2 and API 26 build tools installed
+- Android Studio 2.3.2 and API 25 build tools installed
 
 ### Run instructions
 1. Build the project using gradle `./gradlew build`
