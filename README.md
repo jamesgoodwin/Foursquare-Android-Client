@@ -15,6 +15,6 @@ Despite being simple in features, I wanted the project to showcase the use of th
 
 Unit tests for the presenters can be found in the `app/src/test/java` directory.
 
-Currently the app does not use a dependency injection library and dependencies are passed manually in the constructor, with more time I would replace this with a proper DI library (e.g. Dagger 2).
+Currently the app does not use a dependency injection library, and dependencies are passed manually in the constructor. With more time I would replace this with a proper DI library (e.g. Dagger 2).
 
 ![Screenshot](https://github.com/jamesgoodwin/Foursquare-Android-Client/blob/master/screenshot2.png)
